@@ -12,7 +12,7 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField] private Vector2 _offset;
 
     [Header("Spawneo de enemigos")]
-    [SerializeField] private GameObject[] enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
 
     [Header("Spawneo de coleccionables aleatorios")]
     [SerializeField] private GameObject[] randomCollectibles;
@@ -69,16 +69,19 @@ public class DungeonGenerator : MonoBehaviour
                 ICell currentCell = board[index];
                 if (currentCell.Visited)
                 {
-                    Vector3 position = new Vector3(i * _offset.x, 0f, -j * _offset.y);
-                    GameObject newRoom = _roomFactory.CreateRoom(position, Quaternion.identity, currentCell);
+                    Vector3 basePosition = new Vector3(i * _offset.x, transform.position.y, -j * _offset.y);
+                    GameObject newRoom = _roomFactory.CreateRoom(basePosition, Quaternion.identity, currentCell);
                     newRoom.name = "Room " + i + "-" + j;
+
+                    Vector3 roomPos = newRoom.transform.position;
 
                     // Ítems obligatorios en el primer room
                     if (roomIndex == _startPos)
                     {
                         foreach (GameObject item in firstRoomCollectibles)
                         {
-                            Instantiate(item, position + RandomOffset(), Quaternion.identity, newRoom.transform);
+                            Vector3 spawnPos = roomPos + RandomOffset();
+                            SpawnOnGround(item, spawnPos, newRoom.transform);
                         }
                     }
                     else
@@ -86,27 +89,36 @@ public class DungeonGenerator : MonoBehaviour
                         float chance = UnityEngine.Random.value;
 
                         // Enemigo aleatorio
-                        if (chance < 0.3f && enemyPrefab.Length > 0)
+                        if (chance < 0.3f && enemyPrefabs.Length > 0)
                         {
-                            GameObject randomEnemy = enemyPrefab[UnityEngine.Random.Range(0, enemyPrefab.Length)];
-                            Vector3 spawnPos = position + RandomOffset();
-
-                            if (NavMesh.SamplePosition(spawnPos, out NavMeshHit hit, 2.0f, NavMesh.AllAreas))
-                            {
-                                Instantiate(randomEnemy, hit.position, Quaternion.identity, newRoom.transform);
-                            }
+                            GameObject randomEnemy = enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)];
+                            Vector3 spawnPos = roomPos + RandomOffset();
+                            SpawnOnGround(randomEnemy, spawnPos, newRoom.transform);
                         }
                         // Ítem aleatorio
                         else if (chance < 0.6f && randomCollectibles.Length > 0)
                         {
                             GameObject item = randomCollectibles[UnityEngine.Random.Range(0, randomCollectibles.Length)];
-                            Instantiate(item, position + RandomOffset(), Quaternion.identity, newRoom.transform);
+                            Vector3 spawnPos = roomPos + RandomOffset();
+                            SpawnOnGround(item, spawnPos, newRoom.transform);
                         }
                     }
 
                     roomIndex++;
                 }
             }
+        }
+    }
+
+    private void SpawnOnGround(GameObject prefab, Vector3 position, Transform parent)
+    {
+        if (Physics.Raycast(position + Vector3.up * 5f, Vector3.down, out RaycastHit hit, 10f))
+        {
+            Instantiate(prefab, hit.point, Quaternion.identity, parent);
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ No se encontró el piso para: " + prefab.name + " en posición: " + position);
         }
     }
 

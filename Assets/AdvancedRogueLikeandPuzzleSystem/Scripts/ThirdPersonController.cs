@@ -117,7 +117,13 @@ namespace AdvancedRogueLikeandPuzzleSystem
         Vector3 inputDirection;
         float inputMagnitude = 0;
         float targetSpeed = 0;
-        bool isAutoWalking = false;
+
+        public ThirdPersonController(bool isAutoWalking)
+        {
+            this.isAutoWalking = isAutoWalking;
+        }
+
+        private bool isAutoWalking = false;
         private void Move()
         {
             if (GameManager.Instance.controllerType == ControllerType.KeyboardMouse)

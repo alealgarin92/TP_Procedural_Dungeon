@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57081003677402514}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.19898771, y: -0.064073786, z: 0}
   m_LocalScale: {x: 0.09205297, y: 0.092052944, z: 0.09205297}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6583691924387659116}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1093136683897188263
 MeshFilter:
@@ -58,6 +58,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -108,13 +111,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531110890907665129}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.0009925961, y: -0.9668988, z: 0.25513053, w: -0.0037614375}
   m_LocalPosition: {x: -0.027587013, y: 0.0849394, z: -0.060993824}
   m_LocalScale: {x: 0.09205291, y: 0.09205292, z: 0.09205289}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6583691924387659116}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9036075082316848358
 MeshFilter:
@@ -141,6 +144,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -189,6 +195,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4426846716909663172}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.049325276, y: -0.7053843, z: 0.049325276, w: 0.7053843}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.22, z: 0.22}
@@ -199,7 +206,6 @@ Transform:
   - {fileID: 7841967551729441697}
   - {fileID: 4037234115980349356}
   m_Father: {fileID: 5469021621287728478}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 8}
 --- !u!1 &4549755696526308911
 GameObject:
@@ -226,13 +232,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4549755696526308911}
+  serializedVersion: 2
   m_LocalRotation: {x: -0.26257965, y: -0.14048077, z: 0.75757974, w: 0.580853}
   m_LocalPosition: {x: 2.014, y: -0.239, z: -0.052608956}
   m_LocalScale: {x: 0.09875124, y: 0.06694864, z: 0.11523383}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6583691924387659116}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -5.29, y: -34.295, z: 106.677}
 --- !u!33 &8931422842405190494
 MeshFilter:
@@ -259,6 +265,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -309,13 +318,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6782478176163177209}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.0009925663, y: -0.9668988, z: 0.25513053, w: -0.003761445}
   m_LocalPosition: {x: 3.0027761, y: 0.02804865, z: 0.01446088}
   m_LocalScale: {x: 0.58224887, y: 0.582249, z: 0.58224887}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6583691924387659116}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1259004667609388719
 MeshFilter:
@@ -342,6 +351,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -395,14 +407,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6839701695303083815}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6583691924387659116}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8578081139228474584
 BoxCollider:
@@ -412,9 +424,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6839701695303083815}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 0.1, y: 0.1, z: 0.8300596}
   m_Center: {x: 0, y: 0, z: 0.36502978}
 --- !u!54 &7643275521010040578
@@ -424,10 +444,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6839701695303083815}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -465,6 +496,9 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -490,6 +524,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.3
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.25
@@ -544,6 +579,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 3
     numCornerVertices: 0
@@ -569,6 +605,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e2b7079f33e7c4022a15631426d1295c, type: 3}
+  m_Resource: {fileID: 8300000, guid: e2b7079f33e7c4022a15631426d1295c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

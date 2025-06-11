@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6505302561360161792}
@@ -63,6 +63,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -107,6 +110,7 @@ MonoBehaviour:
   weaponType: 0
   isTaken: 0
   trailRenderer: {fileID: 0}
+  DamagePower: 20
   direction: {x: 0, y: 0, z: 0}
   bloodParticles: []
 --- !u!135 &1081250268474787515
@@ -231,7 +235,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 37724ad16ee6d0e4cbcc08aa146ccba0, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: caade6ad025f6ee45841c33c7582fd46, type: 2}
     - target: {fileID: 919132149155446097, guid: 37724ad16ee6d0e4cbcc08aa146ccba0, type: 3}
