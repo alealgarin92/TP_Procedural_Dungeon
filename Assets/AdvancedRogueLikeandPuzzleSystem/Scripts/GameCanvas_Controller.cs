@@ -57,7 +57,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
         {
             Update_Health_Bar();
             Update_Text_Coin();
-            Text_InteractionKey.text = GameManager.Instance.Keycode_Interact.ToString();
+            //Text_InteractionKey.text = GameManager.Instance.Keycode_Interact.ToString();
         }
 
         public void Configure_For_PCConsole()

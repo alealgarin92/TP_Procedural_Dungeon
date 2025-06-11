@@ -13,10 +13,13 @@ public class DungeonGenerator : MonoBehaviour
     private MazeGeneratorService _mazeGenerator;
     private IRoomFactory _roomFactory;
 
+    [SerializeField] private GameObject playerPrefab; // Prefab del jugador
+
     void Start()
     {
         InitializeComponents();
         GenerateDungeon();
+        SpawnPlayer();
     }
 
     private void InitializeComponents()
@@ -56,13 +59,27 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         float w = Screen.width / 2;
         float h = Screen.height - 80;
         if (GUI.Button(new Rect(w, h, 250, 50), "Regenerate Dungeon"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }*/
+    void SpawnPlayer()
+    {
+        if (playerPrefab != null)
+        {
+            Vector3 startPosition = Vector3.zero;
+            GameObject player = Instantiate(playerPrefab, startPosition, Quaternion.identity, transform);
+            UnityEngine.AI.NavMeshHit hit;
+            if (UnityEngine.AI.NavMesh.SamplePosition(startPosition, out hit, 50f, UnityEngine.AI.NavMesh.AllAreas))
+            {
+                player.transform.position = hit.position;
+                Debug.Log($"Jugador colocado en {hit.position}.");
+            }
         }
     }
 }
