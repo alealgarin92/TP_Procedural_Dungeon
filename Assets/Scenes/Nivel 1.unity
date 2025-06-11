@@ -345,6 +345,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2453253047344378523, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+      propertyPath: ControlMoveAxis
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6872967658073158330, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
       propertyPath: height
       value: 0.6
@@ -438,12 +442,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7590737631844559468, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+      propertyPath: Image_Mana
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590737631844559468, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+      propertyPath: Image_Damage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590737631844559468, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+      propertyPath: Text_Warning
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590737631844559468, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+      propertyPath: Panel_Warning
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590737631844559468, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+      propertyPath: Image_Mana_Potion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590737631844559468, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
       propertyPath: Text_InteractionKey
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2309867256774973390, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+    - {fileID: 6694486756556056945, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+    - {fileID: 6757941185606514389, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+    - {fileID: 707381689781007774, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+    - {fileID: 4993649031751410412, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7416825527296049531, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
       insertIndex: 1
