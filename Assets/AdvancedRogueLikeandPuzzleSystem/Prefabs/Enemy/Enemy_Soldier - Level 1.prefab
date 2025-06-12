@@ -58,7 +58,7 @@ MonoBehaviour:
   attackPeriod: 2.5
   agent: {fileID: 7714733133328608496}
   anim: {fileID: 4894847742507140994}
-  target: {fileID: 0}
+  target: {fileID: 525907912281965190, guid: 481fbf614e3e742a991d5ea4657db9ed, type: 3}
   status: 5
   Audio_Attacks:
   - {fileID: 8300000, guid: b09d49bfb1332451f922e32ff7667278, type: 3}
@@ -255,7 +255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8478007210206488357, guid: 9e90d3a145bc24496a12a93fbf52382e, type: 3}
-  - {fileID: 6733120097778414645, guid: 2860bd5b3e54c472a88b24c4b6e50ca0, type: 3}
 --- !u!1 &8353459574809562519
 GameObject:
   m_ObjectHideFlags: 0
