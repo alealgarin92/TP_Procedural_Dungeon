@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6896911969646451517}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2338659248379990240}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,6 +235,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_Name
       value: RightDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -389,6 +393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.34293294
@@ -467,6 +475,10 @@ PrefabInstance:
     - target: {fileID: 145010, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
       propertyPath: m_Name
       value: Wall_A_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 145010, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 442594, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
       propertyPath: m_LocalScale.x
@@ -912,6 +924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar_F
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.342933
@@ -1059,6 +1075,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_Name
       value: UpDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -1287,6 +1307,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 153574, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 155898, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 165204, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1508,6 +1544,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_Name
       value: LeftDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -1736,6 +1776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftWall
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.34293297
@@ -1818,6 +1862,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 153574, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 155898, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 165204, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1891,6 +1951,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
       propertyPath: m_Name
       value: Pillar_F (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
       propertyPath: m_LocalScale.x
@@ -1966,6 +2030,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 153574, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 155898, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 165204, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: b0e0e89eed1bb7f4982f8a6092a384b6, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2036,9 +2116,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5183264348721910138}
     m_Modifications:
+    - target: {fileID: 101680, guid: 62f525a5c612fb04d9041a1e55c345c4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 162224, guid: 62f525a5c612fb04d9041a1e55c345c4, type: 3}
       propertyPath: m_Name
       value: Wall_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 162224, guid: 62f525a5c612fb04d9041a1e55c345c4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 189442, guid: 62f525a5c612fb04d9041a1e55c345c4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 468814, guid: 62f525a5c612fb04d9041a1e55c345c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2546,6 +2638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_A_03
       objectReference: {fileID: 0}
+    - target: {fileID: 145010, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 442594, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.34293297
@@ -2694,6 +2790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_A_02
       objectReference: {fileID: 0}
+    - target: {fileID: 145010, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 442594, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.34293294
@@ -2768,6 +2868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hay_B
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5562165546ff14f45bea34769748c3a8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5562165546ff14f45bea34769748c3a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.3804197
@@ -2829,6 +2933,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: c8fcb67cb3d648b4b87d500ece16b15f, type: 3}
       propertyPath: m_Name
       value: Floor_new
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c8fcb67cb3d648b4b87d500ece16b15f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c8fcb67cb3d648b4b87d500ece16b15f, type: 3}
       propertyPath: m_LocalScale.x
@@ -2903,6 +3011,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_Name
       value: RightWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -2986,6 +3098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar_F (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.342933
@@ -3059,6 +3175,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
       propertyPath: m_Name
       value: Pillar_F (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8811c9285b2bf334fb3e80d71c9e001b, type: 3}
       propertyPath: m_LocalScale.x
@@ -3208,6 +3328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpWall
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.34293294
@@ -3289,6 +3413,10 @@ PrefabInstance:
     - target: {fileID: 145010, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
       propertyPath: m_Name
       value: Wall_A_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 145010, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 442594, guid: 24579a71f306fa349abdad24a69e4d08, type: 3}
       propertyPath: m_LocalScale.x
@@ -3437,6 +3565,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_Name
       value: DownWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d82e2c8f3a0a74d47b5cc1efbc1b13c8, type: 3}
       propertyPath: m_LocalScale.x

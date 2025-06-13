@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -441,6 +441,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7416825527296049532, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+      propertyPath: audioSource_Swimming
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7590737631844559468, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
       propertyPath: Image_Mana
       value: 
@@ -465,7 +469,11 @@ PrefabInstance:
       propertyPath: Text_InteractionKey
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7416825527296049535, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+    - {fileID: 2080838530, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+    - {fileID: 4330370329520705453, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
+    - {fileID: 4994348518003514045, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2309867256774973390, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
     - {fileID: 6694486756556056945, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
