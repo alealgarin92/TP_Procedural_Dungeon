@@ -297,10 +297,10 @@ namespace AdvancedRogueLikeandPuzzleSystem
 
         public void Show_Damage_Effect()
         {
-            Image_Damage.color = Color.clear;
-            AdvancedTPSCamera.Instance.fCamShakeImpulse = 0.25f;
-            Image_Damage.color = Damage_Effect_Color;
-            StartCoroutine(ResetDamageImageColor());
+            //Image_Damage.color = Color.clear;
+            //AdvancedTPSCamera.Instance.fCamShakeImpulse = 0.25f;
+            //Image_Damage.color = Damage_Effect_Color;
+            //StartCoroutine(ResetDamageImageColor());
         }
 
         IEnumerator ResetDamageImageColor()
