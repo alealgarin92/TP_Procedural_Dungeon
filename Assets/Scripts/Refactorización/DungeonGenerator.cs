@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 using Unity.AI.Navigation;
 using AdvancedRogueLikeandPuzzleSystem;
+using System.Collections.Generic;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -26,11 +27,9 @@ public class DungeonGenerator : MonoBehaviour
 
     [Header("Portal de salida")]
     [SerializeField] private GameObject exitPortalPrefab;
-    [SerializeField] private int requiredKeyID = 0;
-
-    [SerializeField] private GameObject keyPrefab;
     [SerializeField] private int keyID = 1;
 
+    [SerializeField] private GameObject keyPrefab;
 
     private BoardManager _boardManager;
     private MazeGeneratorService _mazeGenerator;
@@ -86,6 +85,7 @@ public class DungeonGenerator : MonoBehaviour
     {
         var board = _boardManager.GetBoard();
         int roomIndex = 0;
+        List<Vector3> roomPositions = new List<Vector3>();
 
         for (int i = 0; i < _dungeonSize.x; i++)
         {
@@ -100,7 +100,8 @@ public class DungeonGenerator : MonoBehaviour
                     newRoom.name = "Room " + i + "-" + j;
 
                     Vector3 roomPos = newRoom.transform.position;
-                    lastRoomPosition = roomPos; // Guardamos la última sala
+                    roomPositions.Add(roomPos);
+                    lastRoomPosition = roomPos;
 
                     if (roomIndex == _startPos)
                     {
@@ -131,28 +132,74 @@ public class DungeonGenerator : MonoBehaviour
                     roomIndex++;
                 }
             }
-            // 🔑 Posición aleatoria para la llave (evitando el primer y último room)
-            Vector3 keyRoomPosition = GetRandomRoomPositionExceptFirstAndLast();
+        }
 
+        // 🔑 Instanciar la llave
+        Vector3 keyRoomPosition = GetRandomRoomPositionExceptFirstAndLast();
+        if (keyRoomPosition != Vector3.zero)
+        {
             GameObject llave = Instantiate(keyPrefab, keyRoomPosition + Vector3.up * 0.5f, Quaternion.identity);
             KeyScript script = llave.GetComponent<KeyScript>();
             if (script != null)
             {
                 script.Key_ID = keyID;
             }
+            else
+            {
+                Debug.LogError("⚠️ El prefab de la llave no tiene el componente KeyScript.");
+            }
+            SpawnOnGround(llave, keyRoomPosition + RandomOffset(), transform);
+        }
+        else
+        {
+            Debug.LogError("⚠️ No se pudo encontrar una posición válida para la llave.");
         }
 
-        
-        if (exitPortalPrefab != null)
+        // 🚪 Instanciar el portal de salida
+        if (exitPortalPrefab != null && lastRoomPosition != Vector3.zero)
         {
             GameObject portaldeSalida = Instantiate(exitPortalPrefab, lastRoomPosition + Vector3.up * 0.5f, Quaternion.identity);
-            var salida = portaldeSalida.GetComponent<PortalSalida>();
+            PortalSalida salida = portaldeSalida.GetComponent<PortalSalida>();
             if (salida != null)
             {
-                salida.RequiredKeyID = keyID; // usar el mismo ID que la llave
+                salida.RequiredKeyID = keyID;
+            }
+            else
+            {
+                Debug.LogError("⚠️ El prefab del portal no tiene el componente PortalSalida.");
+            }
+        }
+        else
+        {
+            Debug.LogError("⚠️ No se asignó el prefab del portal de salida o no hay una posición válida.");
+        }
+    }
+
+    private Vector3 GetRandomRoomPositionExceptFirstAndLast()
+    {
+        List<Vector3> validRoomPositions = new List<Vector3>();
+        var board = _boardManager.GetBoard();
+        for (int i = 0; i < _dungeonSize.x; i++)
+        {
+            for (int j = 0; j < _dungeonSize.y; j++)
+            {
+                int index = Mathf.FloorToInt(i + j * _dungeonSize.x);
+                ICell currentCell = board[index];
+                if (currentCell.Visited && index != _startPos)
+                {
+                    Vector3 roomPosition = new Vector3(i * _offset.x, transform.position.y, -j * _offset.y);
+                    validRoomPositions.Add(roomPosition);
+                }
             }
         }
 
+        if (validRoomPositions.Count == 0)
+        {
+            Debug.LogError("⚠️ No hay habitaciones válidas para colocar la llave.");
+            return Vector3.zero;
+        }
+
+        return validRoomPositions[UnityEngine.Random.Range(0, validRoomPositions.Count)];
     }
 
     private void SpawnOnGround(GameObject prefab, Vector3 position, Transform parent)
@@ -167,7 +214,6 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-
     private Vector3 RandomOffset()
     {
         return new Vector3(
@@ -177,4 +223,12 @@ public class DungeonGenerator : MonoBehaviour
         );
     }
 
+    public void ResetDungeon()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        GenerateDungeon();
+    }
 }

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfa296b332a84024a3f260d42b149ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 0
+  isInteractable: 1
   hiddenObjects:
   - {fileID: 4356699307110289265, guid: 5e168ff5b5bd148748d7a4cdaa46289a, type: 3}
   - {fileID: 8478007210206488357, guid: 9e90d3a145bc24496a12a93fbf52382e, type: 3}
