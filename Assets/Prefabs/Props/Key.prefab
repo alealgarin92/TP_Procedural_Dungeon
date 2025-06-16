@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d7c1a16becb462485c6675aca6f8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key_ID: 1
-  Name: Door Key
+  keyID: 1
+  keyName: Llave
 --- !u!1 &4754623696803248040
 GameObject:
   m_ObjectHideFlags: 0

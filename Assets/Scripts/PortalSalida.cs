@@ -34,10 +34,18 @@ namespace AdvancedRogueLikeandPuzzleSystem
         {
             if (other.CompareTag("Player"))
             {
+                Debug.Log("🚪 Jugador entró en el trigger del portal.");
+
                 HeroController hero = HeroController.instance;
                 if (hero == null)
                 {
                     Debug.LogError("⚠️ HeroController.instance no está inicializado.");
+                    return;
+                }
+
+                if (hero.Keys_Grabbed == null)
+                {
+                    Debug.LogError("⚠️ HeroController.instance.Keys_Grabbed es null.");
                     return;
                 }
 
@@ -47,7 +55,14 @@ namespace AdvancedRogueLikeandPuzzleSystem
                     PlayFeedback(successEffect, successSound);
                     if (!string.IsNullOrEmpty(nextSceneName))
                     {
-                        SceneManager.LoadScene(nextSceneName);
+                        if (SceneUtility.GetBuildIndexByScenePath(nextSceneName) >= 0)
+                        {
+                            SceneManager.LoadScene(nextSceneName);
+                        }
+                        else
+                        {
+                            Debug.LogError($"⚠️ La escena '{nextSceneName}' no está en Build Settings.");
+                        }
                     }
                     else
                     {

@@ -4,14 +4,54 @@ namespace AdvancedRogueLikeandPuzzleSystem
 {
     public class KeyScript : MonoBehaviour
     {
-        public int Key_ID = 0;
-        public string Name;
+        [SerializeField] private int keyID = 0;
+        [SerializeField] private string keyName = "Llave";
+
+        public int Key_ID
+        {
+            get => keyID;
+            set => keyID = value;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                GrabIt();
+            }
+        }
 
         public void GrabIt()
         {
-            HeroController.instance.Keys_Grabbed.Add(Key_ID);
-            GameCanvas_Controller.instance.Show_Grabbed_Text(Name);
-            AudioManager.instance.Play_Grab();
+            if (HeroController.instance != null)
+            {
+                HeroController.instance.Keys_Grabbed.Add(keyID);
+                Debug.Log($"✅ Llave {keyName} (ID: {keyID}) recogida.");
+            }
+            else
+            {
+                Debug.LogError("⚠️ HeroController.instance no está inicializado.");
+                return;
+            }
+
+            if (GameCanvas_Controller.instance != null)
+            {
+                GameCanvas_Controller.instance.Show_Grabbed_Text(keyName);
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ GameCanvas_Controller.instance no está inicializado.");
+            }
+
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.Play_Grab();
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ AudioManager.instance no está inicializado.");
+            }
+
             Destroy(gameObject);
         }
     }
