@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 3463000990612512491}
   - component: {fileID: 1415704251173874464}
   - component: {fileID: 1081250268474787515}
-  - component: {fileID: 3120576214431578368}
-  - component: {fileID: 1445989173274137764}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Weapon
@@ -106,7 +104,7 @@ MonoBehaviour:
   ID: 3
   colliderGrab: {fileID: 1081250268474787515}
   Name: Shield
-  colliderHit: {fileID: 3120576214431578368}
+  colliderHit: {fileID: 0}
   weaponType: 0
   isTaken: 0
   trailRenderer: {fileID: 0}
@@ -134,54 +132,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.8
   m_Center: {x: -1.5643309e-10, y: -0.000000003754394, z: 0.041992202}
---- !u!65 &3120576214431578368
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3463000990614700075}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.91937256, y: 0.91937256, z: 0.12689209}
-  m_Center: {x: 0, y: 0, z: 0.041992188}
---- !u!54 &1445989173274137764
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3463000990614700075}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!1001 &6759273346819607531
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 using Unity.AI.Navigation;
+using AdvancedRogueLikeandPuzzleSystem;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -23,14 +24,40 @@ public class DungeonGenerator : MonoBehaviour
     [Header("NavMesh")]
     [SerializeField] private NavMeshSurface navMeshSurface;
 
+    [Header("Portal de salida")]
+    [SerializeField] private GameObject exitPortalPrefab;
+    [SerializeField] private int requiredKeyID = 0;
+
+    [SerializeField] private GameObject keyPrefab;
+    [SerializeField] private int keyID = 1;
+
+
     private BoardManager _boardManager;
     private MazeGeneratorService _mazeGenerator;
     private IRoomFactory _roomFactory;
+    private Vector3 lastRoomPosition;
 
     void Start()
     {
         InitializeComponents();
-        GenerateDungeon();
+
+        if (DungeonCache.Instance != null && DungeonCache.Instance.DungeonAlreadyGenerated)
+        {
+            _boardManager = DungeonCache.Instance.BoardManagerCache;
+            _roomFactory = new RoomFactory(_rooms);
+            InstantiateRooms();
+            if (navMeshSurface != null) navMeshSurface.BuildNavMesh();
+        }
+        else
+        {
+            GenerateDungeon();
+
+            if (DungeonCache.Instance != null)
+            {
+                DungeonCache.Instance.BoardManagerCache = _boardManager;
+                DungeonCache.Instance.DungeonAlreadyGenerated = true;
+            }
+        }
     }
 
     private void InitializeComponents()
@@ -45,7 +72,6 @@ public class DungeonGenerator : MonoBehaviour
         _mazeGenerator.GenerateMaze();
         InstantiateRooms();
 
-        // 🧠 Bakear NavMesh después de colocar habitaciones
         if (navMeshSurface != null)
         {
             navMeshSurface.BuildNavMesh();
@@ -74,8 +100,8 @@ public class DungeonGenerator : MonoBehaviour
                     newRoom.name = "Room " + i + "-" + j;
 
                     Vector3 roomPos = newRoom.transform.position;
+                    lastRoomPosition = roomPos; // Guardamos la última sala
 
-                    // Ítems obligatorios en el primer room
                     if (roomIndex == _startPos)
                     {
                         foreach (GameObject item in firstRoomCollectibles)
@@ -88,14 +114,12 @@ public class DungeonGenerator : MonoBehaviour
                     {
                         float chance = UnityEngine.Random.value;
 
-                        // Enemigo aleatorio
                         if (chance < 0.3f && enemyPrefabs.Length > 0)
                         {
                             GameObject randomEnemy = enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)];
                             Vector3 spawnPos = roomPos + RandomOffset();
                             SpawnOnGround(randomEnemy, spawnPos, newRoom.transform);
                         }
-                        // Ítem aleatorio
                         else if (chance < 0.6f && randomCollectibles.Length > 0)
                         {
                             GameObject item = randomCollectibles[UnityEngine.Random.Range(0, randomCollectibles.Length)];
@@ -107,7 +131,28 @@ public class DungeonGenerator : MonoBehaviour
                     roomIndex++;
                 }
             }
+            // 🔑 Posición aleatoria para la llave (evitando el primer y último room)
+            Vector3 keyRoomPosition = GetRandomRoomPositionExceptFirstAndLast();
+
+            GameObject llave = Instantiate(keyPrefab, keyRoomPosition + Vector3.up * 0.5f, Quaternion.identity);
+            KeyScript script = llave.GetComponent<KeyScript>();
+            if (script != null)
+            {
+                script.Key_ID = keyID;
+            }
         }
+
+        
+        if (exitPortalPrefab != null)
+        {
+            GameObject portaldeSalida = Instantiate(exitPortalPrefab, lastRoomPosition + Vector3.up * 0.5f, Quaternion.identity);
+            var salida = portaldeSalida.GetComponent<PortalSalida>();
+            if (salida != null)
+            {
+                salida.RequiredKeyID = keyID; // usar el mismo ID que la llave
+            }
+        }
+
     }
 
     private void SpawnOnGround(GameObject prefab, Vector3 position, Transform parent)
@@ -122,6 +167,7 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
+
     private Vector3 RandomOffset()
     {
         return new Vector3(
@@ -131,13 +177,4 @@ public class DungeonGenerator : MonoBehaviour
         );
     }
 
-    /*private void OnGUI()
-    {
-        float w = Screen.width / 2;
-        float h = Screen.height - 80;
-        if (GUI.Button(new Rect(w, h, 250, 50), "Regenerate Dungeon"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }*/
 }
