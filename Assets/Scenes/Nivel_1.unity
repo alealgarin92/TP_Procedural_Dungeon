@@ -184,6 +184,9 @@ MonoBehaviour:
   - {fileID: 5734946974689827320, guid: 015f6213e21d64f1caf762e667a4c8f0, type: 3}
   - {fileID: 3463000990614700075, guid: 1ab00448d8a1747f58e4ef95af22f19a, type: 3}
   navMeshSurface: {fileID: 354723326}
+  exitPortalPrefab: {fileID: 8437359990095328584, guid: f5f4e674ec4ae4d26bb6a9167227e136, type: 3}
+  keyID: 1
+  keyPrefab: {fileID: 4356699307110289265, guid: 5e168ff5b5bd148748d7a4cdaa46289a, type: 3}
 --- !u!114 &354723326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,8 +698,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693cd47d038804a7ca82e46565f59b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RequiredKeyID: 0
+  requiredKeyID: 0
   nextSceneName: Nivel2
+  successEffect: {fileID: 0}
+  errorEffect: {fileID: 0}
+  successSound: {fileID: 0}
+  errorSound: {fileID: 0}
 --- !u!65 &1502248890
 BoxCollider:
   m_ObjectHideFlags: 0

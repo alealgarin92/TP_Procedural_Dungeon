@@ -6,7 +6,9 @@ namespace AdvancedRogueLikeandPuzzleSystem
     public class ChestScript : MonoBehaviour
     {
         public bool isInteractable = false;
-        public List<GameObject> hiddenObjects; 
+        public List<GameObject> hiddenObjects;
+        public GameObject keyPrefab;        // arrastrá el prefab de la llave acá
+        public Transform keySpawnPoint;
 
         void Update()
         {
@@ -33,9 +35,13 @@ namespace AdvancedRogueLikeandPuzzleSystem
             {
                 GetComponent<Animation>().Play("Sandik_OpeningAnimation");
                 HeroController.instance.HideInteractSprite();
-                foreach (var item in hiddenObjects)
+                if (keyPrefab != null && keySpawnPoint != null)
                 {
-                    item.SetActive(true);
+                    GameObject keyInstance = Instantiate(keyPrefab, keySpawnPoint.position, keySpawnPoint.rotation);
+                }
+                else
+                {
+                    Debug.LogWarning("No se asignó la llave o el punto de aparición.");
                 }
                 AudioManager.instance.Play_Chest_Open();
                 GetComponent<Collider>().enabled = false;

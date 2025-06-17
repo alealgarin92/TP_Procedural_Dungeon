@@ -7,7 +7,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
     {
         [Header("Configuración")]
         [SerializeField] private int requiredKeyID = 0;
-        [SerializeField] private string nextSceneName = "Nivel2";
+        [SerializeField] private string nextSceneName = "Nivel_2";
         [SerializeField] private ParticleSystem successEffect;
         [SerializeField] private ParticleSystem errorEffect;
         [SerializeField] private AudioClip successSound;
@@ -55,7 +55,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
                     PlayFeedback(successEffect, successSound);
                     if (!string.IsNullOrEmpty(nextSceneName))
                     {
-                        if (SceneUtility.GetBuildIndexByScenePath(nextSceneName) >= 0)
+                        if (SceneUtility.GetBuildIndexByScenePath(nextSceneName) > 0)
                         {
                             SceneManager.LoadScene(nextSceneName);
                         }

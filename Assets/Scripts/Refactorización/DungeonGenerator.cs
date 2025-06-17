@@ -105,10 +105,15 @@ public class DungeonGenerator : MonoBehaviour
 
                     if (roomIndex == _startPos)
                     {
-                        foreach (GameObject item in firstRoomCollectibles)
+                        // Instanciar todos los objetos del primer room, juntos
+                        float spacing = 2f; // distancia entre objetos
+                        Vector3 origin = roomPos + Vector3.forward * 2f; // pequeña distancia hacia adelante para empezar
+
+                        for (int k = 0; k < firstRoomCollectibles.Length; k++)
                         {
-                            Vector3 spawnPos = roomPos + RandomOffset();
-                            SpawnOnGround(item, spawnPos, newRoom.transform);
+                            Vector3 offset = new Vector3((k % 3) * spacing, 0, (k / 3) * spacing);
+                            Vector3 spawnPos = origin + offset;
+                            SpawnOnGround(firstRoomCollectibles[k], spawnPos, newRoom.transform);
                         }
                     }
                     else
@@ -133,9 +138,10 @@ public class DungeonGenerator : MonoBehaviour
                 }
             }
         }
+    
 
-        // 🔑 Instanciar la llave
-        Vector3 keyRoomPosition = GetRandomRoomPositionExceptFirstAndLast();
+    // 🔑 Instanciar la llave
+    Vector3 keyRoomPosition = GetRandomRoomPositionExceptFirstAndLast();
         if (keyRoomPosition != Vector3.zero)
         {
             GameObject llave = Instantiate(keyPrefab, keyRoomPosition + Vector3.up * 0.5f, Quaternion.identity);
