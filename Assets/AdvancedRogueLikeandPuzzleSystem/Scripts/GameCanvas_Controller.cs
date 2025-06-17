@@ -1,3 +1,7 @@
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -211,6 +215,10 @@ namespace AdvancedRogueLikeandPuzzleSystem
         public void Click_Button_Quit()
         {
             Application.Quit();
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode(); //Solo editor, no funciona en la build!!!
+#endif
+
         }
 
         private void Update()
@@ -338,5 +346,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
             yield return new WaitForSeconds(4);
             Panel_EnemyStatusInfo.SetActive(false);
         }
+
+
     }
 }
