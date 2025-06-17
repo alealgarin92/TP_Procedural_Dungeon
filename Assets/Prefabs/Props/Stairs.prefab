@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKeyID: 1
-  nextSceneName: Nivel2
+  nextSceneName: Nivel_2
   successEffect: {fileID: 0}
   errorEffect: {fileID: 0}
   successSound: {fileID: 0}
