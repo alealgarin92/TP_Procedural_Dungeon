@@ -844,6 +844,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3536883541241475014, guid: 481fbf614e3e742a991d5ea4657db9ed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536883541241475014, guid: 481fbf614e3e742a991d5ea4657db9ed, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3552113083280973887, guid: 481fbf614e3e742a991d5ea4657db9ed, type: 3}
       propertyPath: audio_AyakSesi
       value: 
