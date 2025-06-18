@@ -481,7 +481,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
 
         public void GetActionOnWeapon()
         {
-            if (thirdPersonController.isSwimming) return;
+            //if (thirdPersonController.isSwimming) return;
 
             if (WeaponAttack != null)
             {

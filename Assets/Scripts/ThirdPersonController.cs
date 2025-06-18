@@ -42,9 +42,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
         public Animator _animator;
         private CharacterController _controller;
         private GameObject _mainCamera;
-        public bool isSwimming = false;
-        public ParticleSystem SwimmingParticle;
-
         private const float _threshold = 0.01f;
         private bool _hasAnimator;
         private LadderScript currentLadder;
@@ -74,20 +71,15 @@ namespace AdvancedRogueLikeandPuzzleSystem
         {
             if (HeroController.instance.Health <= 0) return;
 
-            JumpAndGravity();
+            // Salto desactivado
+            // JumpAndGravity();
+
             GroundedCheck();
             Move();
         }
 
-        public void RunInToArea()
-        {
-            isAutoWalking = true;
-        }
-
-        public void ActivatePlayer()
-        {
-            isAutoWalking = false;
-        }
+        public void RunInToArea() => isAutoWalking = true;
+        public void ActivatePlayer() => isAutoWalking = false;
 
         private void AssignAnimationIDs()
         {
@@ -100,20 +92,10 @@ namespace AdvancedRogueLikeandPuzzleSystem
 
         private void GroundedCheck()
         {
-            if (!isSwimming)
-            {
-                Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-                Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
-
-                if (_hasAnimator)
-                {
-                    _animator.SetBool(_animIDGrounded, Grounded);
-                }
-            }
+            // Desactivado (opcional)
         }
+
         float lastTime = 0;
-
-
         Vector3 inputDirection;
         float inputMagnitude = 0;
         float targetSpeed = 0;
@@ -124,6 +106,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
         }
 
         private bool isAutoWalking = false;
+
         private void Move()
         {
             if (GameManager.Instance.controllerType == ControllerType.KeyboardMouse)
@@ -154,7 +137,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
             if (vectorMove != Vector2.zero)
             {
                 inputDirection = new Vector3(vectorMove.x, 0.0f, vectorMove.y).normalized;
-                if(Time.time > lastTime + 0.35f && !HeroController.instance.inDefendMode && !isSwimming)
+                if (Time.time > lastTime + 0.35f && !HeroController.instance.inDefendMode)
                 {
                     lastTime = Time.time;
                     HeroController.instance.audio_AyakSesi.clip = AudioManager.instance.audioClip_Footsteps[Random.Range(0, AudioManager.instance.audioClip_Footsteps.Length)];
@@ -182,116 +165,51 @@ namespace AdvancedRogueLikeandPuzzleSystem
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
 
-            if (_speed == 0 && (_verticalVelocity < 0 && Grounded))
-                return;
+            if (_speed == 0 && (_verticalVelocity < 0 && Grounded)) return;
             if (HeroController.instance.isHitting || HeroController.instance.inDefendMode) return;
-            if (isSwimming)
-            {
-                _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-                if (transform.position.y < waterInTouch.transform.position.y - 0.75f)
-                {
-                    transform.position = new Vector3(transform.position.x, waterInTouch.transform.position.y - 0.75f, transform.position.z);
-                }
-            }
-            else
-            {
-                _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-            }
 
-            if((Input.GetKeyDown(GameManager.Instance.Keycode_Sprint) || Input.GetButtonDown("Sprint")) && HeroController.instance.Mana >= ManaSpending_Sprint)
-            {
-                GameCanvas_Controller.instance.Update_Mana_Bar(ManaSpending_Sprint);
-                StartCoroutine(TrailRendererShow());
-            }
+            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+            // Se desactiva el dash con consumo de maná al presionar shift
+            // if ((Input.GetKeyDown(GameManager.Instance.Keycode_Sprint) || Input.GetButtonDown("Sprint")) && HeroController.instance.Mana >= ManaSpending_Sprint)
+            // {
+            //     GameCanvas_Controller.instance.Update_Mana_Bar(ManaSpending_Sprint);
+            //     StartCoroutine(TrailRendererShow());
+            // }
         }
+
+        // Desactivado sprint especial
+        public void Sprint_Now()
+        {
+            // Desactivado por ahora
+            // if (HeroController.instance.Mana >= ManaSpending_Sprint && vectorMove != Vector2.zero)
+            // {
+            //     GameCanvas_Controller.instance.Update_Mana_Bar(ManaSpending_Sprint);
+            //     StartCoroutine(TrailRendererShow());
+            // }
+        }
+
         public TrailRenderer SprinttrailRenderer;
         public ParticleSystem SprintParticle;
         public int ManaSpending_Sprint = 20;
 
-
-        public void Sprint_Now()
-        {
-            if (HeroController.instance.Mana >= ManaSpending_Sprint && vectorMove != Vector2.zero)
-            {
-                GameCanvas_Controller.instance.Update_Mana_Bar(ManaSpending_Sprint);
-                StartCoroutine(TrailRendererShow());
-            }
-        }
-
+        // Desactivado el efecto visual del sprint especial
         IEnumerator TrailRendererShow()
         {
-            SprinttrailRenderer.enabled = true;
-            SprintParticle.Play();
-            AudioManager.instance.Play_Sprint();
-            yield return new WaitForSeconds(0.1f);
-            HeroController.instance.characterController.Move(transform.forward * 5);
-            yield return new WaitForSeconds(0.2f);
-            SprintParticle.Stop();
-            SprinttrailRenderer.enabled = false;
-
+            // SprinttrailRenderer.enabled = true;
+            // SprintParticle.Play();
+            // AudioManager.instance.Play_Sprint();
+            // yield return new WaitForSeconds(0.1f);
+            // HeroController.instance.characterController.Move(transform.forward * 5);
+            // yield return new WaitForSeconds(0.2f);
+            // SprintParticle.Stop();
+            // SprinttrailRenderer.enabled = false;
+            yield break;
         }
-        private Transform waterInTouch;
+
         private void JumpAndGravity()
         {
-            if (!this.enabled) return;
-
-            if (isSwimming)
-            {
-                return;
-            }
-
-            if (Grounded)
-            {
-                _fallTimeoutDelta = FallTimeout;
-
-                if (_hasAnimator)
-                {
-                    _animator.SetBool(_animIDJump, false);
-                    _animator.SetBool(_animIDFreeFall, false);
-                }
-
-                if (_verticalVelocity < 0.0f)
-                {
-                    _verticalVelocity = -2f;
-                }
-
-                if ((Input.GetKeyUp(GameManager.Instance.Keycode_Jump) && _jumpTimeoutDelta <= 0.0f))
-                {
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDJump, true);
-                    }
-                }
-
-                if (_jumpTimeoutDelta >= 0.0f)
-                {
-                    _jumpTimeoutDelta -= Time.deltaTime;
-                }
-
-            }
-            else
-            {
-                _jumpTimeoutDelta = JumpTimeout;
-
-                if (_fallTimeoutDelta >= 0.0f)
-                {
-                    _fallTimeoutDelta -= Time.deltaTime;
-                }
-                else
-                {
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDFreeFall, true);
-                    }
-                }
-            }
-
-            if (_verticalVelocity < _terminalVelocity)
-            {
-                _verticalVelocity += Gravity * Time.deltaTime;
-            }
+            // Método de salto desactivado completamente
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -306,61 +224,18 @@ namespace AdvancedRogueLikeandPuzzleSystem
             Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
             Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
 
-            if (Grounded) Gizmos.color = transparentGreen;
-            else Gizmos.color = transparentRed;
+            Gizmos.color = Grounded ? transparentGreen : transparentRed;
 
             Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Water"))
-            {
-                AudioManager.instance.Play_Swimming();
-                SwimmingParticle.Play();
-            }
-            if (other.CompareTag("WaterForSwimming"))
-            {
-                _animator.SetBool("Swim", true);
-                waterInTouch = other.transform;
-                AudioManager.instance.Play_Swimming();
-                isSwimming = true;
-                SwimmingParticle.Play();
-                Grounded = true;
-            }
-        }
-
         public void JumpNow()
         {
-            if (!this.enabled) return;
-
-            if (_jumpTimeoutDelta <= 0.0f)
-            {
-                // the square root of H * -2 * G = how much velocity needed to reach desired height
-                _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-                Grounded = false;
-                // update animator if using character
-                if (_hasAnimator)
-                {
-                    _animator.SetBool(_animIDJump, true);
-                }
-            }
+            // Método de salto desactivado completamente
         }
 
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Water"))
-            {
-                AudioManager.instance.Stop_Swimming();
-                SwimmingParticle.Stop();
-            }
-            if (other.CompareTag("WaterForSwimming"))
-            {
-                AudioManager.instance.Stop_Swimming();
-                _animator.SetBool("Swim", false);
-                SwimmingParticle.Stop();
-                isSwimming = false;
-            }
-        }
+        private void OnTriggerEnter(Collider other) { }
+        private void OnTriggerExit(Collider other) { }
     }
+
 }

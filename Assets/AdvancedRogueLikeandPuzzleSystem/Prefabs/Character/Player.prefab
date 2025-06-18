@@ -708,8 +708,6 @@ MonoBehaviour:
   _animationBlend: 0
   _animIDSpeed: 0
   _animator: {fileID: 0}
-  isSwimming: 0
-  SwimmingParticle: {fileID: 4087811501963922844}
   SprinttrailRenderer: {fileID: 1206870754}
   SprintParticle: {fileID: 1075872437889385048}
   ManaSpending_Sprint: 20

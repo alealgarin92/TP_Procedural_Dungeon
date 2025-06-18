@@ -660,7 +660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872967658073158330, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
       propertyPath: verticalRotationSpeed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6872967658073158330, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
       propertyPath: collisionLayers.m_Bits
@@ -668,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6872967658073158330, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
       propertyPath: horizontalRotationSpeed
-      value: 300
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7416825527296049529, guid: b16f14f44f7f84d95b4ddc01cfaf9e55, type: 3}
       propertyPath: m_Name
