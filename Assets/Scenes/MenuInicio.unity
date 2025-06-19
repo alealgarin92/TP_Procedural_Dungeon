@@ -1578,7 +1578,7 @@ AudioSource:
   m_GameObject: {fileID: 1003964923}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5739752985531634320, guid: b5a96a4d95ba94acfa504260160be787, type: 2}
   m_audioClip: {fileID: 8300000, guid: 22699a97e84723e439ad90898a123373, type: 3}
   m_Resource: {fileID: 8300000, guid: 22699a97e84723e439ad90898a123373, type: 3}
   m_PlayOnAwake: 1
@@ -2994,6 +2994,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 741473736601611462, guid: 69f213e898f8dcd43973fcb8606dfa45, type: 3}
+      propertyPath: level1
+      value: 
+      objectReference: {fileID: 8300000, guid: 28970ddb4f8ba458f8c215f620f98612, type: 3}
     - target: {fileID: 1079181422011514130, guid: 69f213e898f8dcd43973fcb8606dfa45, type: 3}
       propertyPath: m_Name
       value: MusicController
