@@ -8,7 +8,7 @@ public class MusicController : MonoBehaviour
 
     [SerializeField] private AudioClip level1, level2, level3;
 
-
+    
     public void ChangeMusic(AudioClip newClip)
     {
         mainAudio.Stop();
@@ -40,6 +40,11 @@ public class MusicController : MonoBehaviour
     public void ResumeLevelMusic()
     {
         mainAudio.UnPause();
+    }
+
+    public void SetVolume(float volume)
+    {
+        mainAudio.volume = volume;
     }
 
 }  
