@@ -191,6 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 14708204414276772}
   - component: {fileID: 14708204414276771}
+  - component: {fileID: 9222074159380024350}
   m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
@@ -220,12 +221,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14708204414276773}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.2704254, g: 0.90719604, b: 0.9716981, a: 1}
-  m_Intensity: 3
-  m_Range: 11
+  m_Color: {r: 0.972549, g: 0.46144944, b: 0.27058822, a: 1}
+  m_Intensity: 1
+  m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -278,6 +279,29 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &9222074159380024350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14708204414276773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &60330502952977780
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +731,7 @@ MonoBehaviour:
   _speed: 0
   _animationBlend: 0
   _animIDSpeed: 0
-  _animator: {fileID: 0}
+  _animator: {fileID: 5885160869446260988}
   SprinttrailRenderer: {fileID: 1206870754}
   SprintParticle: {fileID: 1075872437889385048}
   ManaSpending_Sprint: 20
@@ -753,8 +777,8 @@ MonoBehaviour:
   TotalMana: 100
   Health: 100
   TotalHealth: 100
-  Speed: 6
-  SprintSpeed: 10
+  Speed: 4
+  SprintSpeed: 6
   HitPower: 25
   Sprite_Interaction: {fileID: 1806909260559209814}
   MaxHealthPot: 4
@@ -1454,7 +1478,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e1b24429cf65842b7ad7e7e99f3c6c91, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -1462,7 +1486,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &382282290
