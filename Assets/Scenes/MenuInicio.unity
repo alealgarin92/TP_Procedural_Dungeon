@@ -5125,6 +5125,10 @@ PrefabInstance:
       propertyPath: level1
       value: 
       objectReference: {fileID: 8300000, guid: 28970ddb4f8ba458f8c215f620f98612, type: 3}
+    - target: {fileID: 741473736601611462, guid: 69f213e898f8dcd43973fcb8606dfa45, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1079181422011514130, guid: 69f213e898f8dcd43973fcb8606dfa45, type: 3}
       propertyPath: m_Name
       value: MusicController
