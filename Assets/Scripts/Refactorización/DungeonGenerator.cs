@@ -31,6 +31,9 @@ public class DungeonGenerator : MonoBehaviour
 
     [SerializeField] private GameObject keyPrefab;
 
+    [Header("Objeto exclusivo del primer room")]
+    [SerializeField] private GameObject firstRoomSpecialObject;
+
     private BoardManager _boardManager;
     private MazeGeneratorService _mazeGenerator;
     private IRoomFactory _roomFactory;
@@ -115,7 +118,14 @@ public class DungeonGenerator : MonoBehaviour
                             Vector3 spawnPos = origin + offset;
                             SpawnOnGround(firstRoomCollectibles[k], spawnPos, newRoom.transform);
                         }
+                        // 🧱 Instanciar objeto exclusivo del primer room
+                        if (firstRoomSpecialObject != null)
+                        {
+                            Instantiate(firstRoomSpecialObject, roomPos, Quaternion.identity, newRoom.transform);
+                        }
+
                     }
+
                     else
                     {
                         float chance = UnityEngine.Random.value;

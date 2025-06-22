@@ -78,7 +78,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
             cold = GetComponent<Collider>();
         }
 
-
         void Start()
         {
             TotalMana = Mana;
@@ -140,8 +139,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
                 GameCanvas_Controller.instance.Show_Button_Interact();
             }
         }
-
-
 
         public void HideInteractSprite()
         {
@@ -250,6 +247,11 @@ namespace AdvancedRogueLikeandPuzzleSystem
                     HideInteractSprite();
                     InteractedItem.GetComponent<PotionScript>().GrabIt();
                 }
+                else if (InteractedItemType == ItemType.Coin)
+                {
+                    HideInteractSprite();
+                    InteractedItem.GetComponent<CoinScript>().GrabIt();
+                }
                 else if (InteractedItemType == ItemType.Door)
                 {
                     InteractedItem.GetComponent<DoorScript>().TryToOpen();
@@ -268,7 +270,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
                 {
                     InteractedItem.GetComponent<AynaCarkScript>().Activate();
                 }
-                if (InteractedItemType == ItemType.Weapon)
+                else if (InteractedItemType == ItemType.Weapon)
                 {
                     HideInteractSprite();
                     TaketheWeapon();
@@ -291,6 +293,11 @@ namespace AdvancedRogueLikeandPuzzleSystem
                     HideInteractSprite();
                     InteractedItem.GetComponent<PotionScript>().GrabIt();
                 }
+                else if (InteractedItemType == ItemType.Coin)
+                {
+                    HideInteractSprite();
+                    InteractedItem.GetComponent<CoinScript>().GrabIt();
+                }
                 else if (InteractedItemType == ItemType.Door)
                 {
                     if (InteractedItem != null && InteractedItem.GetComponent<DoorScript>() != null)
@@ -303,7 +310,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
                     HideInteractSprite();
                     InteractedItem.GetComponent<ChestScript>().Open();
                 }
-                if (InteractedItemType == ItemType.Weapon)
+                else if (InteractedItemType == ItemType.Weapon)
                 {
                     TaketheWeapon();
                 }
@@ -331,7 +338,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
                 power = HeroController.instance.HitPower;
                 Hit();
             }
-
         }
 
         public void CheckPotionInputsForMobile(int i)
@@ -363,7 +369,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
                 }
             }
         }
-
 
         public void CheckPotionInputs()
         {
@@ -411,6 +416,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
                 CheckPotionInputs();
             }
         }
+
         private float LastManaUpdateTime = 0;
 
         public void ManaUpdate()
@@ -432,6 +438,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
 
         [HideInInspector]
         public bool isHitting = false;
+
         private IEnumerator CutTheSpeed()
         {
             thirdPersonController.MoveSpeed = 0;
@@ -450,7 +457,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
             WeaponAttack.transform.localRotation = bodyPart.WeaponAttackPutOnTransform.localRotation;
         }
 
-
         IEnumerator PutOffWeapons()
         {
             yield return new WaitForSeconds(0.6f);
@@ -458,7 +464,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
             WeaponAttack.transform.localPosition = bodyPart.WeaponAttackPutOffTransform.localPosition;
             WeaponAttack.transform.localRotation = bodyPart.WeaponAttackPutOffTransform.localRotation;
         }
-
 
         IEnumerator PutOnShield()
         {
@@ -477,12 +482,8 @@ namespace AdvancedRogueLikeandPuzzleSystem
             WeaponDefend.transform.localRotation = bodyPart.WeaponDefendPutOffTransform.localRotation;
         }
 
-
-
         public void GetActionOnWeapon()
         {
-            //if (thirdPersonController.isSwimming) return;
-
             if (WeaponAttack != null)
             {
                 if (!WeaponsonHands)
@@ -502,7 +503,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
             }
             if (WeaponDefend != null)
             {
-                if(!ShieldonHands)
+                if (!ShieldonHands)
                 {
                     StartCoroutine(PutOnShield());
                     GameCanvas_Controller.instance.Show_Button_Shield();
@@ -516,7 +517,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
                     }
                 }
             }
-            
         }
 
         public void Lock(bool decision)
@@ -608,15 +608,19 @@ namespace AdvancedRogueLikeandPuzzleSystem
                 {
                     InteractedItemType = ItemType.Key;
                 }
-                if (other.GetComponent<ChestScript>() != null)
+                else if (other.GetComponent<CoinScript>() != null)
+                {
+                    InteractedItemType = ItemType.Coin;
+                }
+                else if (other.GetComponent<ChestScript>() != null)
                 {
                     InteractedItemType = ItemType.Chest;
                 }
-                if (other.GetComponent<AsansorScript>() != null)
+                else if (other.GetComponent<AsansorScript>() != null)
                 {
                     InteractedItemType = ItemType.Elevator;
                 }
-                if (other.GetComponent<AynaCarkScript>() != null)
+                else if (other.GetComponent<AynaCarkScript>() != null)
                 {
                     InteractedItemType = ItemType.Mirror;
                 }
@@ -629,7 +633,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
         {
             if (other.CompareTag("Item"))
             {
-                if (InteractedItemType == ItemType.Key || InteractedItemType == ItemType.Potion || InteractedItemType == ItemType.Chest || InteractedItemType == ItemType.Elevator || InteractedItemType == ItemType.Mirror)
+                if (InteractedItemType == ItemType.Key || InteractedItemType == ItemType.Potion || InteractedItemType == ItemType.Coin || InteractedItemType == ItemType.Chest || InteractedItemType == ItemType.Elevator || InteractedItemType == ItemType.Mirror)
                 {
                     InteractedItem = null;
                     HideInteractSprite();
@@ -663,6 +667,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
         }
 
         private bool gettingHit = false;
+
         IEnumerator ResetGetHit()
         {
             gettingHit = true;
@@ -684,7 +689,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
             GameCanvas_Controller.instance.Update_Health_Bar();
         }
 
-
         public void AddMana(int adding)
         {
             Mana = Mana + adding;
@@ -694,7 +698,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
             }
             GameCanvas_Controller.instance.Update_Mana_Bar(0);
         }
-
 
         IEnumerator AddSpeed(int extraSpeed)
         {
@@ -753,7 +756,6 @@ namespace AdvancedRogueLikeandPuzzleSystem
             }
             if (inDefendMode)
             {
-                //Animator.SetTrigger("GetImpact");
                 AudioManager.instance.Play_ShieldImpact();
                 return;
             }
@@ -799,6 +801,7 @@ namespace AdvancedRogueLikeandPuzzleSystem
         Chest,
         Elevator,
         Button,
-        Mirror
+        Mirror,
+        Coin
     }
 }

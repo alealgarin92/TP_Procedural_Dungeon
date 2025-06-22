@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 13b9ec565be443e4595635d903e50a1f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 313269
+  packageName: Stylized Chest3 - Animated, Textured, PBR, Unlit
+  packageVersion: 1.0
+  assetPath: Assets/Stylized Chest 3/Animations/Chest3_Anim.controller
+  uploadId: 738676
