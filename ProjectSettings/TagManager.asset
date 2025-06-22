@@ -21,6 +21,10 @@ TagManager:
   - IpSarkaciSonuc
   - Light
   - Ragdoll
+  - Light1
+  - CanvasFinal
+  - GamePlayPanel
+  - MusicLevel
   layers:
   - Default
   - TransparentFX
