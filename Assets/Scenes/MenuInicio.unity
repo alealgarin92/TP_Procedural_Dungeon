@@ -1553,12 +1553,12 @@ MonoBehaviour:
   panelBotones: {fileID: 732325115}
   cutsceneImage: {fileID: 258935354}
   cutsceneSprites:
-  - {fileID: 21300000, guid: 5f07bf259b09f684083d37937b0593aa, type: 3}
-  - {fileID: 21300000, guid: 2b3704d8aeec6e541aa9dfd4a38bcc51, type: 3}
-  - {fileID: 21300000, guid: 6b49e6c41ef6dda4293e031548d6b273, type: 3}
-  - {fileID: 21300000, guid: d803c37863a723e4eb07a646794b3122, type: 3}
-  - {fileID: 21300000, guid: d0e089e9739ea284da1392af01de2f7c, type: 3}
-  - {fileID: 21300000, guid: 23dfd15db5b9116448381c8fb4838862, type: 3}
+  - {fileID: 21300000, guid: 541a9fa6d11104d439fd953d1f3b3b78, type: 3}
+  - {fileID: 21300000, guid: 2cad0e35d21ab8e419a64bf1483d53d2, type: 3}
+  - {fileID: 21300000, guid: bb5cf1a9f96629d40a3e85dd4786a421, type: 3}
+  - {fileID: 21300000, guid: c91c6c77df52434459ca83629876fb69, type: 3}
+  - {fileID: 21300000, guid: caa7e5ac660b8da4688a1004bb8c8793, type: 3}
+  - {fileID: 21300000, guid: ac7328a3c659dd3408bf65478ab58aa6, type: 3}
   imageDuration: 5
   fadeDuration: 1
 --- !u!114 &545674178
